@@ -5,10 +5,16 @@
     <title>Рецепты</title>
 </head>
 <body>
-{% for ingredient, amount in recipe.items %}
-    <p>{{ ingredient }}: {{ amount }}</p>
+{% if recipe %}
+<p>Блюдо: {{ dish }}</p>
+<p>Количество персон: {{ servings }}</p>
+<p>Ингредиенты:</p>
+{% endif %}
+<ul>{% for ingredient, amount in recipe.items %}
+    <li>{{ ingredient }}: {{ amount }}</li>
 {% empty %}
-    <p>Такого рецепта не знаю :(</p>
+<p>Такого рецепта не знаю :(</p>
 {% endfor %}
+</ul>
 </body>
 </html>
